@@ -6,41 +6,69 @@ while command != "exit":
     command = input("Perintah : ")
     
     if command == "exit":
-        break #perintah break disebut sebagai flow control / kontrol aliran. break ini digunakan untuk menghentikan loop secara langsung.
+        break
     
-    if command != "+" and command != "-" and command != "*" and command != "/" and command != "**" and command != "%":
+    if command not in ["+", "-", "*", "/", "**", "%"]:
         print("Perintah tidak dikenali")
-        continue #perintah continue ini disebut sebagai flow control / kontrol aliran. continue ini digunakan untuk melanjutkan ke iterasi berikutnya dalam perulangan atau loop.
-    
+        continue
+
     if command == "+":
         print("Penjumlahan")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
         result = a + b
     elif command == "-":
         print("Pengurangan")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
         result = a - b
     elif command == "*":
         print("Perkalian")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
         result = a * b
     elif command == "/":
-        print("Pembagian")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
-        result = a / b
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
+        if b == 0:
+            print("Tidak dapat melakukan pembagian dengan nol.")
+            continue
+        else:
+            print("Pembagian")
+            result = a / b
     elif command == "**":
         print("Perpangkatan")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
         result = a ** b
     elif command == "%":
         print("Modulus")
-        a = int(input("Angka pertama : "))
-        b = int(input("Angka kedua : "))
+        try:
+            a = int(input("Angka pertama : "))
+            b = int(input("Angka kedua : "))
+        except ValueError:
+            print("Input harus berupa angka. Silakan coba lagi.")
+            continue
         result = a % b
     
     print(f"Hasil : {result} ")
