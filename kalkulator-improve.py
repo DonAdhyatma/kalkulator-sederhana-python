@@ -40,18 +40,17 @@ while command != "exit":
             continue
         result = a * b
     elif command == "/":
+        print("Pembagian")
         try:
             a = int(input("Angka pertama : "))
             b = int(input("Angka kedua : "))
+            result = a / b
+        except ZeroDivisionError:
+            print("Penyebut tidak boleh angka nol. Silakan coba lagi.")
+            continue
         except ValueError:
             print("Input harus berupa angka. Silakan coba lagi.")
             continue
-        if b == 0:
-            print("Tidak dapat melakukan pembagian dengan nol.")
-            continue
-        else:
-            print("Pembagian")
-            result = a / b
     elif command == "**":
         print("Perpangkatan")
         try:
